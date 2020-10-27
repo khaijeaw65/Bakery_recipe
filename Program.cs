@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Bakery_shop
 {
@@ -19,7 +19,7 @@ namespace Bakery_shop
 
             do
             {
-                string action = getSelectedAction();
+                string action = Menu();
 
                 switch (action)
                 {
@@ -35,33 +35,26 @@ namespace Bakery_shop
             } while (!exit.Equals("y", StringComparison.OrdinalIgnoreCase));
         }
 
-        public static string getSelectedAction()
+        public static string Menu()
         {
-            Console.WriteLine("----Welcome to SFB.Bakery----");
-            Console.WriteLine("1: Search Bakery name :");
+            Console.WriteLine("----Welcome to SF.Food----");
+            Console.WriteLine("1: Search Food name :");
             Console.WriteLine("2: Add Recipe :");
             Console.WriteLine("3: Edit Recipe :");
-            Console.Write("Please choose: ");
-            string choice = Convert.ToString(Console.ReadLine());
+            Console.Write("Please Choose:");
+            string Choice = Console.ReadLine();
 
-            while (!choice.Equals("1") || !choice.Equals("2") || !choice.Equals("3"))
+            while (Choice != "1" && Choice != "2" && Choice != "3")
             {
-                if (choice.Equals("1") || choice.Equals("2") || choice.Equals("3"))
-                {
-                    return choice;
-                }
-
-                Console.Clear();
-                Console.WriteLine("Wrong input");
-                Console.WriteLine("----Welcome to SFB.Bakery----");
-                Console.WriteLine("1: Search Bakery name :");
+                Console.WriteLine("Wrong Key");
+                Console.WriteLine("----Welcome to SF.Food----");
+                Console.WriteLine("1: Search Food name :");
                 Console.WriteLine("2: Add Recipe :");
                 Console.WriteLine("3: Edit Recipe :");
-                Console.Write("Please choose: ");
-                choice = Convert.ToString(Console.ReadLine());
+                Console.Write("Please Choose:");
+                Choice = Console.ReadLine();
             }
-
-            return "0";
+            return Choice;
         }
 
         public static void searchRecipe(string[] recipeName, string[] recipeIngredient, string[] recipeMethod)
@@ -100,7 +93,6 @@ namespace Bakery_shop
         public static void AddRecipe(string[] recipeName, string[] recipeIngredient, string[] recipeMethod)
         {
             string confirmChoice;
-
             do
             {
                 Console.Write("Please enter recipe name for the recipe: ");
@@ -129,7 +121,7 @@ namespace Bakery_shop
                         if (!name.Equals(recipeName[index]))
                         {
                             recipeName[index] = name;
-                            recipeName[index] = addIngredient;
+                            recipeIngredient[index] = addIngredient;
                             recipeMethod[index] = addMethod;
                             break;
                         }
@@ -172,7 +164,7 @@ namespace Bakery_shop
                 Console.Write("Enter 1 for edit ingredient use in this recipe or 2 for edit method use in this recipe: ");
                 string edit = Console.ReadLine();
 
-                while (!edit.Equals("1") || !edit.Equals("2"))
+                while (!edit.Equals("1") && !edit.Equals("2"))
                 {
                     Console.WriteLine("Wrong input");
                     Console.Write("Enter 1 for edit ingredient use in this recipe or 2 for edit method use in this recipe: ");
