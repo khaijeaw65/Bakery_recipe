@@ -54,6 +54,7 @@ namespace Bakery_shop
                 Console.Write("Please Choose:");
                 Choice = Console.ReadLine();
             }
+
             return Choice;
         }
 
@@ -114,7 +115,7 @@ namespace Bakery_shop
                 Console.Write("confirm recipe data? (y/n): ");
                 confirmChoice = Console.ReadLine();
 
-                if (confirmChoice.Equals("y"))
+                if (confirmChoice.Equals("y", StringComparison.OrdinalIgnoreCase))
                 {
                     for (int index = 0; index < recipeName.Length; index++)
                     {
@@ -128,7 +129,7 @@ namespace Bakery_shop
                     }
                 }
 
-            } while (!confirmChoice.Equals("y"));
+            } while (!confirmChoice.Equals("y", StringComparison.OrdinalIgnoreCase));
 
         }
 
@@ -179,7 +180,7 @@ namespace Bakery_shop
                     Console.Write("confirm recipe data? (y/n): ");
                     confirmChoice = Console.ReadLine();
 
-                    if (confirmChoice.Equals("y"))
+                    if (confirmChoice.Equals("y", , StringComparison.OrdinalIgnoreCase))
                     {
                         for (int index = 0; index < recipeName.Length; index++)
                         {
@@ -212,7 +213,7 @@ namespace Bakery_shop
                     }
                 }
 
-            } while (!confirmChoice.Equals("y"));
+            } while (!confirmChoice.Equals("y", , StringComparison.OrdinalIgnoreCase));
         }
 
         public static bool RecipeExist(string[] recipeName, string name)
